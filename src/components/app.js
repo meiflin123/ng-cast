@@ -11,18 +11,21 @@ angular.module('video-player')
     templateUrl: 'src/templates/app.html',
 
 
-    controller: function() {
-      this.videos = window.exampleVideoData;
-      this.currentVideo = this.videos[0];
-      console.log(this.videos);
+    controller: function(youTube) {
+      this.videos = [];
+      this.currentVideo = {};
       
       
       this.selectVideo = (video) => {
         this.currentVideo = video;
       };
 
-      this.searchResults = () => {
+      this.searchResults = (videos) => {
+        this.videos = videos;
+        this.currentVideo = videos[0];
       };
+
+      youTube.search({key: window.YOUTUBE_API_KEY, query: 'cute cat video', maxResults: 5}, this.searchResults);
     }
     
   });
