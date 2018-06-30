@@ -25,7 +25,8 @@ angular.module('video-player')
         this.currentVideo = videos[0];
       };
 
-      youTube.search({key: window.YOUTUBE_API_KEY, query: 'cute cat video', maxResults: 5}, this.searchResults);
+
+      youTube.search({key: window.YOUTUBE_API_KEY, query: 'Justin Bieber', maxResults: 5}, this.searchResults);
     }
     
   });

@@ -14,7 +14,6 @@ angular.module('video-player')
           videoEmbeddable: true 
         }
       }).then(function successCallback(response) {
-        console.log(response);
         callback(response.data.items);
 
       }, function errorCallback(response) {

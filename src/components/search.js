@@ -13,8 +13,10 @@ angular.module('video-player')
 
       this.searchResult = '';
       this.onClick = (searchResult) => {
-        youTube.search({key: window.YOUTUBE_API_KEY, query: this.searchResult, maxResults: 5}, this.result);
+        youTube.search({key: window.YOUTUBE_API_KEY, query: searchResult, maxResults: 5}, this.result);
       };
+
+      this.onClick = _.debounce(this.onClick, 500);
       
 
     }
